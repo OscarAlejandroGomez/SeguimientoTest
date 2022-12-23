@@ -1,0 +1,201 @@
+{% extends 'Index/index.html' %}
+{% block body %}
+    <div class="content-inner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="page-header">
+                    <div class="d-flex align-items-center">
+                        <h2 class="page-header-title"></h2>
+                        <div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item active">Subir documento</li>
+                                <li class="breadcrumb-item"><a href="/index"><i class="ti ti-home"></i></a></li>
+                            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-row">
+                {% for row in perfiles %}
+                    {% if row == 10 %}
+                        <div class="col-xl-12" style="display: block;">
+                            <div class="widget has-shadow">
+                                <div class="widget-header bordered no-actions d-flex align-items-center">
+                                    <h4>Subir documento</h4>
+                                </div>
+                                <div class="widget-body">
+                                    <div class="row">
+                                        <div class="col-xl-4">
+                                        </div>
+                                        <div class="col-xl-4 text-center">
+                                            <div class="col-sm">
+                                                <form action="/upload" method="POST" enctype="multipart/form-data">
+                                                    <input type="file" name="archivo" class="btn btn-secondary mt-5 mb-5" required>
+                                                    <div class="col-md-12"><input type="submit" class="btn btn-primary">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3 mb-3">
+                                        <div class="col-xl-12">
+                                            <div class="viewerContainer">
+                                                {% for url in url %}
+                                                <div id="accordion-icon-right" class="accordion">
+                                                    <div class="widget has-shadow">
+                                                        <a class="card-header collapsed d-flex align-items-center" data-toggle="collapse"
+                                                            href="#IconRightCollapseFive">
+                                                            <h3 class="form-control-label">Gestión documento: </h3><br>
+                                                            <h3 class="form-control-label"></h3>
+                                                        </a>
+                                                        <div id="IconRightCollapseFive" class="card-body collapse" data-parent="#accordion-icon-right">
+                                                            <div class="row">
+                                                                <div class="col-xl-4">
+                                                                    <label class="form-control-label">Estado del documento<span class="text-danger ml-2">*</span></label>
+                                                                    <SELECT name="Id_estado_documento" disabled="" id="Id_estado_documento" class="custom-select form-control">
+                                                                        <option value="0" id="Id_estado_documento"></option>
+                                                                    </SELECT>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mt-5 mb-5">
+                                                                <div class="col-xl-3">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Número gepol<span
+                                                                                class="text-danger ml-2">*</span></label>
+                                                                        <input type="text" name="Numero_gepol" Id="Numero_gepol" placeholder="# documento"
+                                                                            class="form-control">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xl-9">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Contexto documento<span
+                                                                                class="text-danger ml-2">*</span></label>
+                                                                        <textarea type="text" cols="10" rows="5" id="Contexto_documento"
+                                                                            class="form-control"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                           
+                                                            <div class="row mt-3 mb-3">
+                                                                <div class="col-xl-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Anotación documento<span class="text-danger ml-2">*</span></label>
+                                                                        <textarea type="text" cols="10" rows="5" id="Mensaje_funcionario" value=""
+                                                                            class="form-control"></textarea>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="table-responsive m-t-40">
+                                                                    <table id="MyTable_Observaciones_documento"
+                                                                        class=" text-center display nowrap table table-hover table-striped table-bordered" cellspacing="0"
+                                                                        width="100%">
+                                                                        <tbody class="text-center">
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-4 text-left">
+                                                                     <div class="text-center"><button id="btn_envia_documento" onclick="envia_documento()" class="btn btn-secondary ripple"
+                                                                            type="submit">Enviar
+                                                                            documento</button></div>
+                                                                </div>
+                                                                <div class="col-xl-4 text-center">
+                                                                    
+                                                                </div>
+                                                                <div class="col-xl-4 text-rigth">
+                                                                    <div class="text-left"><button onclick="p_eliminar_documento('{{url.0}}')" class="btn btn-gradient-01"
+                                                                            type="submit">Eliminar
+                                                                            documento</button></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xl-12 text-center">
+                                                                    <form action="/upload_new" method="POST" enctype="multipart/form-data">
+                                                                        <input type="file" name="archivo" class="btn btn-secondary mb-2" required>
+                                                                        <div class="col-md-12"><input type="submit" class="btn btn-primary">
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                            <div class="portfolio text-center mb-5">
+                                                                <embed  id="viewer" style="width: 100%; height: 500px;" class="pdfViewer" src="{{url.1}}">
+                                                                </embed > 
+                                                            </div>
+                                                            {% else %}
+                                                            <div class="form-group mt-3 mb-1">
+                                                                <h4 class="text-center" style="color:black">No hay documento a visualizar</h4>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {%else%}
+                        <!-- {% if loop.first %}
+                            <div class="row">
+                                <div class="col-xl-4"></div>
+                                <div class="col-xl-4 text-center">
+                                    <h2 class="form-control-label">  ¡No debes intentar ingresar sino tienes permisos, este intento de acceso quedará registrado en la auditoría a fin de ser monitoreado!</h2>
+                                </div>
+                                <div class="col-xl-4"></div>
+                            </div>
+                        {% endif %} -->
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+<script src="static/assets/vendors/js/base/jquery.min.js"></script>
+<script src="static/assets/vendors/js/datatables/datatables.min.js"></script> 
+<script src="static/assets/vendors/js/base/core.min.js"></script>
+<script src="static/assets/vendors/js/nicescroll/nicescroll.min.js"></script>
+<script src="static/assets/vendors/js/noty/noty.min.js"></script>
+<script src="static/assets/vendors/js/bootstrap-wizard/bootstrap.wizard.min.js"></script>
+<script src="static/assets/vendors/js/app/app.min.js"></script>
+<script src="static/assets/js/components/wizard/form-wizard.min.js"></script>
+<script src="static/assets/js/components/notifications/notifications.min.js"></script>
+<script src="static/assets/js/components/validation/validation.min.js"></script>
+<script src="static/lib/jquery/sweetalert2.all.min.js"></script>
+<script src="static/js/pdf.js"></script>
+<script src="static/js/viewer.js"></script>
+<script src="static/js/auditoria.js"></script>
+<script src="static/js/carga_informacion.js"></script>
+
+<style>
+    .container {
+      position: relative;
+      width: 500%;
+      height: 100%;
+      overflow: hidden;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+
+    .viewer {
+        height: 500%;
+        position: absolute;
+        width: 100%;
+    }
+    
+    .responsive-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+
+{% endblock %}

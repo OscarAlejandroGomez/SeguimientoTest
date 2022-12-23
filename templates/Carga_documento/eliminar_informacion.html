@@ -1,0 +1,77 @@
+{% extends 'Index/index.html' %}
+{% block body %}
+
+<div class="content-inner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header">
+                <div class="d-flex align-items-center">
+                    <h2 class="page-header-title"></h2>
+                    <div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item active">Eliminar documento</li>
+                            <li class="breadcrumb-item"><a href="/index"><i class="ti ti-home"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row flex-row">
+            {% for row in perfiles %}
+                {% if row == 10 %}
+                <div class="col-xl-12" Id="panel_carga_documento" style="display: block;">
+                    <div class="widget has-shadow">
+                        <div class="widget-header bordered no-actions d-flex align-items-center">
+                            <h4>Eliminar documento</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="table-responsive">
+                                <table id="data_documento" class="table mb-0">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Documento</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                        {% for row in documentos %}
+                                        <tr>
+                                            <td data-pk="{{row.0}}">{{row.0}}</td>
+                                            <td data-name="Nombre" class="Nombre form-control-label" data-type="text"
+                                                data-pk="{{row.2}}">
+                                                {{row.2}}</td>
+                                            <td data-name="Ver" Id="Btn_eliminar_documento" onclick="p_eliminar_documento('{{row.1}}')"
+                                                class="btn btn-primary" data-type="button">
+                                                Eliminar</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<script src="static/assets/vendors/js/base/jquery.min.js"></script>
+<script src="static/assets/vendors/js/datatables/datatables.min.js"></script> 
+<script src="static/assets/vendors/js/base/core.min.js"></script>
+<script src="static/assets/vendors/js/nicescroll/nicescroll.min.js"></script>
+<script src="static/assets/vendors/js/app/app.min.js"></script>
+<script src="static/lib/jquery/sweetalert2.all.min.js"></script>
+<script src="static/js/eliminar_informacion.js"></script>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        var dataTable = $('#data_documento').dataTable();
+    });
+   
+</script>
+
+{% endblock %}

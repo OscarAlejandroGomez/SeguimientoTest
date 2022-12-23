@@ -1,0 +1,85 @@
+body {
+
+  /* background-color: red; */
+  /* background: #2193b0;
+  background: -webkit-linear-gradient(to bottom, #2193b0, #6dd5ed);  */
+
+  /*background: linear-gradient(to bottom, #2193b0, #6dd5ed); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background: url("../img/wallpaper.jpg") no-repeat center center fixed ;
+  background-size: cover;
+}
+
+.main-section{
+  margin:0 auto;
+  margin-top: 10%;
+  padding: 0;
+}
+
+.modal-contect{
+ background-color: #3b4652;
+  opacity: .85;
+   padding: 0 20px;
+  box-shadow: 0px 0px 5px #848484;
+}
+
+.user-img{
+  margin-top: -50px;
+  margin-bottom: 35px;
+  /* box-shadow: 0px 0px 5px #848484; */
+  /* border-radius: 50%; */
+}
+
+.user-img img{
+  width: 100px;
+  height: 103px;
+}
+
+.form-group input{
+  height: 42px;
+  font-size: 18px;
+  border: 0;
+  padding-left: 54px;
+  border-radius: 5px;
+}
+
+.form-group::before{
+  font-family: "Font Awesome\ 5 Free";
+  position: obsolute;
+  left: 28px;
+  font-size: 22px;
+
+}
+
+.form-group#user-group::before{
+  content: "\f007";
+  position: obsolute;
+}
+
+.form-group#contrasena-group::before{
+  content: "\f017";
+  position: obsolute;
+}
+
+
+button{
+  width: 60%;
+  margin: 10px 0 50px;
+}
+
+.forgot{
+  padding: 5px 0 5px;
+}
+
+.forgot a{
+ color: white;
+}
+
+
+
+.nav-link[data-toggle].collapsed:before {
+  content: " ▾";
+}
+.nav-link[data-toggle]:not(.collapsed):before {
+  content: " ▴";
+}

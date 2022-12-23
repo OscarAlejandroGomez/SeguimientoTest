@@ -1,0 +1,203 @@
+{% extends 'Index/index.html' %}
+{% block body %}
+
+<div class="content-inner">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header">
+                <div class="d-flex align-items-center">
+                    <h2 class="page-header-title"></h2>
+                    <div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/panel_principal"><i class="ti ti-home"></i></a></li>
+                            <li class="breadcrumb-item active">Registro usuarios</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row flex-row">
+            {% for row in perfiles %}
+                {% if row == 2 %}
+                <div class="col-xl-12" Id="panel_registro_usuarios" style="display: block;">
+                    <div class="widget has-shadow">
+                        <div class="widget-header bordered no-actions d-flex align-items-center">
+                            <h4>Registro usuarios</h4>
+                        </div>
+                        <div class="widget-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <img style="border-radius: 3px; padding: 1px; border:1px solid #021a40; -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5); box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);"
+                                            src="" alt="Cargando..." width="120px" height="143px">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Identificación</label>
+                                        <div class="input-group">
+                                            <input type="search" Id="Texto_buscar" placeholder="Número de identificación" class="form-control text-center">
+                                            <span class="input-group-btn" style="height:20px;">
+                                                <button Id="Btnbuscar" style="height:40px;" type="button" class="btn btn-secondary">
+                                                    <i class="la la-search la-0x"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Funcionario<span class="text-danger ml-2">*</span></label>
+                                            <input type="text" name="Funcionario" Id="Funcionario" placeholder="Nombre del funcionario"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Unidad<span class="text-danger ml-2">*</span></label>
+                                            <input type="text" name="Unidad" Id="Unidad" placeholder="Unidad del funcionario"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Cargo<span class="text-danger ml-2">*</span></label>
+                                            <input type="text" name="Cargo" Id="Cargo" placeholder="Cargo del funcionario"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Situación actual<span class="text-danger ml-2">*</span></label>
+                                            <input type="text" name="Situacion_actual" Id="Situacion_actual" placeholder="Situacion actual del funcionario"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Usuario<span class="text-danger ml-2">*</span></label>
+                                            <input type="text" name="Usuario" Id="Usuario" placeholder="Usuario del funcionario"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Habilitado<span class="text-danger ml-2">*</span></label>
+                                            <SELECT name="Id_habilitar" id="Id_habilitar" class="custom-select form-control">
+                                                <option value="0" id="Id_habilitar">Seleccione...</option>
+                                            </SELECT>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Perfil<span class="text-danger ml-2">*</span></label>
+                                            <SELECT name="Id_Perfil" id="Id_Perfil" class="custom-select form-control">
+                                                <option value="0" id="Id_Perfil">Seleccione...</option>
+                                            </SELECT>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Fecha fin rol<span class="text-danger ml-2">*</span></label>
+                                            <input type="date" name="Fecha_fin_rol" Id="Fecha_fin_rol" placeholder="Fecha fin rol"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Tema<span class="text-danger ml-2">*</span></label>
+                                            <SELECT name="Id_tema" id="Id_tema" onchange="f_visualiza_subtemas()" class="custom-select form-control">
+                                                <option value="0" id="Id_tema">Seleccione...</option>
+                                            </SELECT>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="col-xl-12">
+                                            <label class="form-control-label">Subtema<span class="text-danger ml-2">*</span></label>
+                                            <SELECT name="Id_subtema" id="Id_subtema" class="selectpicker show-menu-arrow show-tick" multiple data-actions-box="true">
+                                                <option>Seleccione...</option>
+                                            </SELECT>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea type="text" cols="10" rows="5" id="Justificacion" value="" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center pt-10">
+                                <div class="form-group">
+                                    <button id="btn_regitro_permisos_usuario" type="button" class="btn btn-gradient-01"><i class="fas fa-save ">
+                                            Registrar
+                                            permisos</i>
+                                    </button>
+                                    <button id="btn_limpiar_campos" type="button" class="btn btn-secondary ripple fa-duotone fa-ruler"><i class="">
+                                            Limpiar</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table id="mytable_permisos"
+                                            class="text-center display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        </table>
+                                        <thead class="text-center">
+                                        </thead>
+                                        <tbody class="text-center">
+                                        </tbody>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script src="static/assets/vendors/js/base/jquery.min.js"></script>
+<script src="static/assets/vendors/js/datatables/datatables.min.js"></script> 
+<script src="static/assets/vendors/js/base/core.min.js"></script>
+<script src="static/assets/vendors/js/nicescroll/nicescroll.min.js"></script>
+<script src="static/assets/vendors/js/noty/noty.min.js"></script>
+<script src="static/assets/vendors/js/bootstrap-wizard/bootstrap.wizard.min.js"></script>
+<script src="static/assets/vendors/js/app/app.min.js"></script>
+<script src="static/assets/js/components/wizard/form-wizard.min.js"></script>
+<script src="static/assets/js/components/notifications/notifications.min.js"></script>
+<script src="static/assets/js/components/validation/validation.min.js"></script>
+<script src="static/lib/jquery/sweetalert2.all.min.js"></script>
+<script src="static/js/registro_usuarios.js"></script>
+<script src="static/assets/vendors/js/bootstrap-select/bootstrap-select.min.js"></script>
+{% endblock %}

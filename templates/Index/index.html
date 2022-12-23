@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Policía Nacional</title>
+        <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script> -->
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script> -->
+        <script src="static/js/webfont.js"></script>
+    
+        <script>
+          WebFont.load({
+            google: {"families":["Montserrat:400,500,600,700","Noto+Sans:400,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+          });
+        </script>
+        <link rel="icon" type="image/png" sizes="32x32" href="static/assets/img/logo.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="static/assets/img/logo.png">
+        <link rel="stylesheet" href="static/assets/vendors/css/base/bootstrap.min.css">
+        <link rel="stylesheet" href="static/assets/vendors/css/base/elisyam-1.5.min.css">
+        <!-- <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.css"> -->
+        <link rel="stylesheet" href="static/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="static/css/paginate.css">
+        <!-- <link rel="stylesheet" href="static/css/Viewer.css"> -->
+        <link rel="stylesheet" href="static/css/ligne.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="static/assets/img/logo.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/assets/img/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/assets/img/logo.png">
+        <link rel="stylesheet" href="static/assets/css/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="static/assets/css/owl-carousel/owl.theme.min.css">
+        <link rel="stylesheet" href="static/assets/css/bootstrap-select/bootstrap-select.min.css">
+        <script type="text/javascript" src="static/js/paginate.js"></script>  
+        <script type="text/javascript" src="static/js/paginate.min.js"></script>
+        <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/room.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/room.css')}}"> -->
+        <link rel="stylesheet" href="static/css/room.css">
+      
+    </head>
+    <body id="page-top">
+        <div id="preloader">
+            <div class="canvas">
+                <img src="static/assets/img/logo.png" alt="logo" class="loader-logo">
+                <div class="spinner"></div>   
+            </div>
+        </div>
+        <div class="page">
+            <header class="header">
+                <nav class="navbar fixed-top">         
+                    <div class="search-box">
+                        <button class="dismiss"><i class="ion-close-round"></i></button>
+                        <form id="searchForm" action="#" role="search">
+                            <input type="search" placeholder="Search something ..." class="form-control">
+                        </form>
+                    </div>
+                    <div class="navbar-holder d-flex align-items-center align-middle justify-content-between">
+                        <div class="navbar-header">
+                            <a href="/index" class="navbar-brand">
+                                <div class="brand-image brand-big">
+                                    <img src="static/assets/img/logo.png" alt="logo" class="logo-small">
+                                    <img src="static/assets/img/logo-big.png" width="60px" alt="logo" class="logo-big">
+                                </div>
+
+                                
+                                <div class="brand-image brand-small">
+                                    <img src="static/assets/img/logo.png" alt="logo" class="logo-small">
+                                </div>
+                            </a>
+                            <a id="toggle-btn" href="#" class="menu-btn active">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center pull-right">
+                            <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="la la-search"></i></a></li>
+                            <li class="nav-item dropdown"><a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="la la-bell animated infinite swing"></i><span class="badge-pulse"></span></a>
+                                <ul aria-labelledby="notifications" class="dropdown-menu notification">
+                                    <li>
+                                        <div class="notifications-header">
+                                            <div class="title">Notifications (4)</div>
+                                            <div class="notifications-overlay"></div>
+                                            <img src="static/assets/img/notifications/01.jpg" alt="..." class="img-fluid">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="message-icon">
+                                                <i class="la la-user"></i>
+                                            </div>
+                                            <div class="message-body">
+                                                <div class="message-body-heading">
+                                                    New user registered
+                                                </div>
+                                                <span class="date">2 hours ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="message-icon">
+                                                <i class="la la-calendar-check-o"></i>
+                                            </div>
+                                            <div class="message-body">
+                                                <div class="message-body-heading">
+                                                    New event added
+                                                </div>
+                                                <span class="date">7 hours ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="message-icon">
+                                                <i class="la la-history"></i>
+                                            </div>
+                                            <div class="message-body">
+                                                <div class="message-body-heading">
+                                                    Server rebooted
+                                                </div>
+                                                <span class="date">7 hours ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="message-icon">
+                                                <i class="la la-twitter"></i>
+                                            </div>
+                                            <div class="message-body">
+                                                <div class="message-body-heading">
+                                                    You have 3 new followers
+                                                </div>
+                                                <span class="date">10 hours ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a rel="nofollow" href="#" class="dropdown-item all-notifications text-center">View All Notifications</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown"><a id="user" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><img src="static/assets/img/avatar/avatar-01.jpg" alt="..." class="avatar rounded-circle"></a>
+                                <ul aria-labelledby="user" class="user-size dropdown-menu">
+                                    <li class="welcome">
+                                        <a href="#" class="edit-profil"><i class="la la-gear"></i></a>
+                                        <img src="static/assets/img/avatar/avatar-01.jpg" alt="..." class="rounded-circle">
+                                    </li>
+                                    {% for row in funcionario %}
+                                    <li>
+                                        <a href="pages-profile.html" class="dropdown-item"> 
+                                            Funcionario: <div class="form-control-label">{{row.0}}</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="app-mail.html" class="dropdown-item"> 
+                                            Cargo: <div class="form-control-label">{{row.1}}</div>
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="/chat">Chat</a></li>
+                                    {% endfor %}
+                                    
+                                    <li class="separator"></li>
+                                   
+                                    <li><a rel="nofollow" href="/" style="background: rgba(3,43,87,1) 25%" class="dropdown-item logout"><i class="ti-power-off"></i></a><br><br>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="#off-canvas" class="open-sidebar"><i class="la la-ellipsis-h"></i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <div class="page-content d-flex align-items-stretch">
+                <div class="default-sidebar" style="background: rgba(3,43,87,1) 25%">
+                    <nav class="side-navbar box-scroll sidebar-scroll">
+                        <ul class="list-unstyled" style="background: rgba(3,43,87,1) 25%">
+                            {% for row in perfiles %}
+                            {% if row == 9 %}
+                            <li><a href="#dropdown-db" aria-expanded="false" style="background: rgba(3,43,87,1) 25%" data-toggle="collapse"><i
+                                        class="la la-columns"></i><span>Visualizar información</span></a>
+                                <ul id="dropdown-db" class="collapse list-unstyled show pt-0"
+                                    style="background: linear-gradient(179deg, rgba(3,43,87,1) 25%, rgb(0 106 141) 62%) !important;">
+                                    <li><a href="/documentos_generados">Documentos por temática</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% for row in perfiles %}
+                            {% if row == 10 %}
+                            <li><a href="#dropdown-contact" style="background: rgba(3,43,87,1) 25%;" aria-expanded="false"
+                                    data-toggle="collapse"><i class="la la-weixin"></i><span>Cargar información</span></a>
+                                <ul id="dropdown-contact" class="collapse list-unstyled pt-0"
+                                    style="background: linear-gradient(179deg, rgba(3,43,87,1) 25%, rgb(0 106 141) 62%) !important;">
+                                    <li><a href="/cargar_archivo">Subir documento</a></li>
+                                    <li><a href="/documento_registrado">Eliminar información</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% for row in perfiles %}
+                            {% if row == 52 %}
+                            <li><a href="#dropdown-teacher" style="background: rgba(3,43,87,1) 25%" value="2000" Id="modulo_docente"
+                                    aria-expanded="false" data-toggle="collapse"><i class="la la-street-view"></i><span>Verificar
+                                        información</span></a>
+                                <ul id="dropdown-teacher" class="collapse list-unstyled pt-0"
+                                    style="background: linear-gradient(179deg, rgba(3,43,87,1) 25%, rgb(0 106 141) 62%) !important;">
+                                    <li><a href="/revisar_documentos" value="2001" Id="submodulo_docente_creacion_malla"
+                                            style="display: block;">Revisar documentos</a>
+                                    <li><a href="/documentos_aprobados" value="2002" Id="submodulo_docente_gestion_logros_academicos"
+                                            style="display: block;">Documentos aprobados</a>
+                                    <li><a href="/documentos_devueltos" value="2002" Id="submodulo_docente_gestion_logros_academicos"
+                                            style="display: block;">Documentos devueltos</a>
+                                </ul>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% for row in perfiles %}
+                            {% if row == 2 %}
+                            <li id="Administrar_usuario"><a style="background: rgba(3,43,87,1) 25%;" href="#dropdown-generic"
+                                    aria-expanded="false" data-toggle="collapse"><i class="la la-users"></i><span>Administración</span></a>
+                                <ul id="dropdown-generic" class="collapse list-unstyled pt-0"
+                                    style="background: linear-gradient(179deg, rgba(3,43,87,1) 25%, rgb(0 106 141) 62%) !important;">
+                                    <li><a href="/registro_usuarios">Registro usuarios</a></li>
+                                </ul>
+                                <!-- <ul id="dropdown-generic" class="collapse list-unstyled pt-0"
+                                    style="background: linear-gradient(179deg, rgba(3,43,87,1) 25%, rgb(0 106 141) 62%) !important;">
+                                    <li><a href="/chat">Acceso al chat</a></li>
+                                </ul> -->
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+
+                {% block body %}
+                <div class="content-inner">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="page-header">
+                                <div class="d-flex align-items-center">
+                                    <h2 class="page-header-title"></h2>
+                                    <div>
+                                        <ul class="breadcrumb">
+                                            <li class="breadcrumb-item active">Panel principal</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row flex-row">
+                            <div class="col-xl-12" Id="panel_carga_documento" style="display: block;">
+                                <div class="widget has-shadow">
+                                    <div class="widget-header bordered no-actions d-flex align-items-center">
+                                        <h4>Banner principal</h4>
+                                    </div>
+                                    <div class="widget-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <script src="static/assets/vendors/js/base/jquery.min.js"></script>
+                <script src="static/assets/vendors/js/base/core.min.js"></script>
+                <script src="static/assets/vendors/js/nicescroll/nicescroll.min.js"></script>
+                <script src="static/assets/vendors/js/app/app.min.js"></script>
+                {% endblock %}
+                <script type="text/javascript" language="javascript">
+                    function e(q) {
+                        document.body.appendChild( document.createTextNode(q) );
+                        document.body.appendChild( document.createElement("BR") );
+                    }
+                    function inactividad() {
+                        window.location.href = "/"
+                    }
+                    var t=null;
+                    function contadorInactividad() {
+                        t=setTimeout("inactividad()",180000);
+                    }
+                    window.onblur=window.onmousemove=function() {
+                        if(t) clearTimeout(t);
+                        contadorInactividad();
+                    } 
+                </script>
+            </div> 
+        </div>
+    </body>
+</html>
+
+
+

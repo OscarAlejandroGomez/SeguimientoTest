@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Policía Nacional</title>
+        <meta name="description" content="Elisyam is a Web App and Admin Dashboard Template built with Bootstrap 4">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script> -->
+        <script src="static/js/webfont.js"></script>
+        <script>
+          WebFont.load({
+            google: {"families":["Montserrat:400,500,600,700","Noto+Sans:400,700"]},
+            active: function() {
+                sessionStorage.fonts = true;
+            }
+          });
+        </script>
+       
+        <link rel="apple-touch-icon" sizes="180x180" href="static/assets/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/assets/img/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/assets/img/logo.png">
+      
+        <link rel="stylesheet" href="static/assets/vendors/css/base/bootstrap.min.css">
+        <link rel="stylesheet" href="static/assets/vendors/css/base/elisyam-1.5.min.css">
+    </head>
+    <body class="bg-white">
+        <div id="preloader" style="background: linear-gradient(179deg, rgba(3,43,87,1) 25%, rgb(0 106 141) 62%) !important;">
+            <div class="canvas">
+                <img src="static/assets/img/logo.png" alt="logo" class="loader-logo">
+                <div class="spinner"></div>   
+            </div>
+        </div>
+        <div class="container-fluid no-padding h-100">
+            {% block body %} 
+            <div class="row flex-row h-100 bg-white">
+                <div class="col-xl-8 col-lg-6 col-md-5 no-padding">
+                    <div class="elisyam-bg background-01" style="background: linear-gradient(179deg, rgba(3,43,87,1) 25%, rgb(0 106 141) 62%, rgba(23,156,148,1) 97%) !important;">
+                        <div class="elisyam-overlay overlay-01"></div>
+                        <div class="authentication-col-content mx-auto">
+                            <h1 class="gradient-text-01">
+                                Policía Nacional de Colombia
+                            </h1>
+                            <span class="description">
+                                Dirección General de la Policía Nacional - Oficina de Telemática 
+                            </span>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="col-xl-4 col-lg-6 col-md-7 my-auto no-padding">
+                    <div class="authentication-form mx-auto">
+                        <div class="logo-centered">
+                            <a>
+                                <img src="static/assets/img/logo.png" alt="logo">
+                            </a>
+                        </div>
+                        <h3 class="text-center pt-10">Inicio de sesión</h3>
+                        <form action="/f_iniciar_sesion" method="POST">
+                            <div class="group material-input">
+                                <input id="Usuario" name="Usuario" type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label class="text-center">Usuario</label>
+                            </div>
+                            <div class="group material-input">
+                                <input Id="password" name="password" type="password" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label class="text-center">Password</label>
+                            </div>
+                            <div class="row">
+                                {% if retorno == 5 %}
+                                    {% block content %}
+                                    <div class="col text-center">
+                                        <a style="color:red;">los datos ingresados no corresponden</a>
+                                    </div>
+                                    {% endblock content %}
+                                {% elif retorno == 6 %}
+                                    <div class="col text-center">
+                                        <a style="color:red;">lo siento, no tiene permisos de acceso</a>
+                                    </div>
+                                {% elif retorno == 2 %}
+                                   
+                                    <div class="col text-center">
+                                        <a style="color:red;">su situacion laboral o cargo ha cambiado, contacte al administrador</a>
+                                    </div>
+                                   
+                                {% endif %}
+                                <div class="col text-right">
+                                    <a href="https://gestionusuario.policia.gov.co:8443/resetpasswordOIM/">olvidé mi constraseña</a>
+                                </div>
+                            </div>
+                            <div class="sign-btn text-center">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-gradient-01">
+                                        Iniciar sesión
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endblock %} 
+        </div>
+        <div id="success-modal" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="sa-icon sa-success animate" style="display: block;">
+                            <span class="sa-line sa-tip animateSuccessTip"></span>
+                            <span class="sa-line sa-long animateSuccessLong"></span>
+                            <div class="sa-placeholder"></div>
+                            <div class="sa-fix"></div>
+                        </div>
+                        <div class="section-title mt-5 mb-2">
+                            <h2 class="text-gradient-02">Hola, que bueno verte por aquí...</h2>
+                        </div>
+                        <p class="form-control-label">¡ tu usuario se encuentra registrado pero no aprobado, por favor contacta al administrador !</p>
+                        <button type="button" class="btn btn-shadow mb-3" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="success_modal_datos_erroneos" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="sa-icon sa-success animate" style="display: block;">
+                            <span class="sa-line sa-tip animateSuccessTip"></span>
+                            <span class="sa-line sa-long animateSuccessLong"></span>
+                            <div class="sa-placeholder"></div>
+                            <div class="sa-fix"></div>
+                        </div>
+                        <div class="section-title mt-5 mb-2">
+                            <h2 class="text-gradient-02">Hola</h2>
+                        </div>
+                        <p class="form-control-label">¡ Tus datos de sesion no corresponden, por favor verifica nuevamente !</p>
+                        <button type="button" class="btn btn-shadow mb-3" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="static/assets/vendors/js/base/jquery.min.js"></script>
+        <script src="static/assets/vendors/js/base/core.min.js"></script>
+       
+        <script src="static/lib/jquery/sweetalert2.all.min.js"></script>
+        <script src="static/assets/vendors/js/app/app.min.js"></script>
+        <!-- <script src="static/js/login.js"></script> -->
+    </body>
+</html>
+   

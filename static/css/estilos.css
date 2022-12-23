@@ -1,0 +1,128 @@
+h1 {
+    color: white;
+    padding: 1em;   
+}
+
+#show-modal{
+    text-align: center;
+    background: #bc651a;
+    padding: 15px 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 1.5em;
+    border-radius: 3.5px; 
+    text-decoration: none;
+    transition: all 0.15s linear;
+}
+
+#show_modal:hover{
+    cursor: pointer;
+    background: #bc9d1a;
+
+}
+
+.modal{
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    z-index: 99999999;
+    background: rgba(0, 0, 0, 0.75);
+    width: 100vm;
+    height: 100vm;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.modal .content-modal{
+    width: 100%;
+    max-width: 508px;
+    position: fixed;
+    left: 50%;
+    top: -180vh;
+    transition: top 0.35s ease;
+    margin-left: -250px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    z-index: 9999999;
+
+}
+
+.modal h2{
+    padding: 0.5em;
+    text-align: center;
+    color: #444444;
+    margin:0;   
+}
+
+.moda article{
+    height: 300px;
+    background: #bc651a;
+}
+
+.close-modal{
+    color: #e74c3c;
+    position: absolute;
+    top: 0.2em;
+    right: 0.375em;
+    margin: 0;
+    padding: 5px;
+    font-weight: blod;
+    font-size: 1.5em;
+    text-decoration: none;   
+}
+
+.modal a:hover{
+    color: #f9f9f9;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.modal:target{
+    opacity: 1;
+    top: 0;
+}
+
+.modal .btn-close-nodal{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999991;
+}
+
+.modal:target .content-modal{
+    top:50px;
+    transition: top 0.35 ease;
+}
+
+
+@media (max-width: 796px){
+.modal .content-modal{
+    width: 90%;
+    max-width: none;
+    left: 5%;
+    margin-left: 0;   
+}
+    /* .modal ul{
+        padding: 0 1 ;
+    } */
+}
+.modal-header, h4, .close {
+    /* padding: 0px 100px; */
+    color:#fbfdfd !important;
+    border-bottom: 1px solid linear-gradient(#2a4885,#577cc9);
+    font-size: 15px;
+    display: block; 
+    padding-left: 30px;
+    text-transform:uppercase;
+    text-align: center;
+  }
+  .modal-footer {
+    padding: 50px 200px;
+    background-color: #f9f9f9;
+  }
+ 
+  
+  
+
